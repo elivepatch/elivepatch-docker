@@ -11,7 +11,8 @@ MAINTAINER alicef@gentoo.org
 
 RUN mkdir /etc/portage/package.keywords
 RUN printf "dev-lang/python sqlite" > /etc/portage/package.use/python
-RUN printf "sys-apps/elivepatch-server ~amd64\nsys-kernel/kpatch **\napp-crypt/pesign ~amd64" > /etc/portage/package.keywords/elivepatch
+RUN printf "sys-apps/elivepatch-server ~amd64\nsys-kernel/kpatch ~amd64\napp-crypt/pesign ~amd64" > /etc/portage/package.keywords/elivepatch
 
+RUN emerge --sync
+RUN ROOT=/destination emerge -qv sys-kernel/kpatch
 RUN ROOT=/destination emerge -qv sys-apps/elivepatch-server
-RUN ROOT=/destination USE="-modules" emerge -qv sys-kernel/kpatch
