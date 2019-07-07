@@ -5,8 +5,5 @@ services:
     build: ./gentoo
     container_name: gentoo-elivepatch
     restart: always
-  
-  debian:
-    build: ./debian
-    container_name: debian-elivepatch
-    restart: always
+    ports:
+      - 5000:5000
