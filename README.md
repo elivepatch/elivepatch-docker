@@ -29,3 +29,6 @@ We can do it from the elivepatch-client repository like this.
 ```shell
  elivepatch-client -p example/2.patch -k example/config_5.1.6 -a 5.1.6 --url http://localhost:5000
 ```
+## Additional documentation
+
+Please check the [elivepatch wiki](https://wiki.gentoo.org/wiki/Elivepatch)
