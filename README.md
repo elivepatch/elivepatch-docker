@@ -13,3 +13,19 @@ It handles the automated creation of live patch object for the Linux kernel (cur
 * SSL security configuration
 * Supporting any gentoo-sources version and configuration
 * Work with all versions of docker
+
+## Basic usage
+
+### Step 1 - start the elivepatch-server docker image
+We added docker-compose.yml for a really simple usage.
+```shell
+$ docker-compose up -d
+```
+The previous command will start elivepatch server on the port 5000, where you can communicate with [**elivepatch-client**](https://github.com/gentoo/elivepatch-client).
+
+### Step 2 - create a live patch object
+Let's start by building a example live patch object.  
+We can do it from the elivepatch-client repository like this.
+```shell
+ elivepatch-client -p example/2.patch -k example/config_5.1.6 -a 5.1.6 --url http://localhost:5000
+```
