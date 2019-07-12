@@ -29,6 +29,47 @@ We can do it from the elivepatch-client repository like this.
 ```shell
  elivepatch-client -p example/2.patch -k example/config_5.1.6 -a 5.1.6 --url http://localhost:5000
 ```
+
+## Basic development
+
+### Step 1 - Move to the development enviroment
+```shell
+$ git checkout development
+```
+
+### Step 2 - Rebuild image if necessary
+```shell
+$ docker-compose build
+```
+
+### Step 3 - Clone elivepatch-server repository
+We need to clone the elivepatch-server repository that we want to work on.  
+In this case we are using the official repository as example but you can use a fork.
+```shell
+$ git clone git@github.com:gentoo/elivepatch-server.git elivepatch-server
+```
+
+### Step 4 - Make some changes
+
+### Step 5 - Test everything is working
+```shell
+$ docker-compose up -d
+$ docker-compoes exec gentoo /bin/bash
+bbd875c1561b /elivepatch_development $ python setup.py install
+bbd875c1561b /elivepatch_development $ elivepatch-server -d
+```
+
+### Step 6 - create a live patch object
+Let's start by building a example live patch object.  
+We can do it from the elivepatch-client repository like this.
+```shell
+ elivepatch-client -p example/2.patch -k example/config_5.1.6 -a 5.1.6 --url http://localhost:5000
+```
+
+### Step 7 - Send a pull request
+Feel free to send pull requests to elivepatch-server or elivepatch-client.
+Welcome to the project.
+
 ## Additional documentation
 
 Please check the [elivepatch wiki](https://wiki.gentoo.org/wiki/Elivepatch)
