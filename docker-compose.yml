@@ -9,6 +9,7 @@ services:
       - 5000:5000
     volumes:
       - elivepatch_data:/tmp/
+      - ./elivepatch-server:/elivepatch_development
 
 volumes:
   elivepatch_data:

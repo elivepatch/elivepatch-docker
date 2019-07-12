@@ -15,4 +15,7 @@ RUN printf "sys-apps/elivepatch-server ~amd64\nsys-kernel/kpatch ~amd64\napp-cry
 
 RUN emerge -qv sys-kernel/kpatch dev-vcs/git
 RUN emerge -qv "=sys-apps/elivepatch-server-0.2"
-CMD ["elivepatch-server","-d"]
+RUN emerge -C "=sys-apps/elivepatch-server-0.2"
+WORKDIR /elivepatch_development
+
+CMD ["tail","-f","/dev/null"]
